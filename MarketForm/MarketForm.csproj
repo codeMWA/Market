@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3498B26-4903-42D8-A26B-445466FBD1FF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MarketForm</RootNamespace>
+    <AssemblyName>MarketForm</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\Desktop\TDI2\GUNA\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acces.Designer.cs">
+      <DependentUpon>Acces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccesLinq\DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="AutreTypeAcc\AccType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutreTypeAcc\AccType.Designer.cs">
+      <DependentUpon>AccType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHomepage\Homepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerHomepage\Homepage.Designer.cs">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHomepage\ProductControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerHomepage\ProductControl.Designer.cs">
+      <DependentUpon>ProductControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHomepage\Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerHomepage\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHomepage\support.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerHomepage\support.Designer.cs">
+      <DependentUpon>support.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHomepage\trendingAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerHomepage\trendingAccount.Designer.cs">
+      <DependentUpon>trendingAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHomepage\trendingSeller.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomerHomepage\trendingSeller.Designer.cs">
+      <DependentUpon>trendingSeller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarketDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarketDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NewPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPassword.Designer.cs">
+      <DependentUpon>NewPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sellerHomepage\AccCust.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\AccCust.Designer.cs">
+      <DependentUpon>AccCust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellerHomepage\AddAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\AddAcc.Designer.cs">
+      <DependentUpon>AddAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellerHomepage\CrystalSeller_cust\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\CrystalSeller_cust\CrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\CrystalSeller_cust\CrystalReport3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\CrystalSeller_cust\Support.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\CrystalSeller_cust\Support.Designer.cs">
+      <DependentUpon>Support.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellerHomepage\DelAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\DelAcc.Designer.cs">
+      <DependentUpon>DelAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellerHomepage\Homepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\Homepage.Designer.cs">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellerHomepage\SellerAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\SellerAcc.Designer.cs">
+      <DependentUpon>SellerAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellerHomepage\SellerCust.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\SellerCust.Designer.cs">
+      <DependentUpon>SellerCust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellerHomepage\SellerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SellerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sellerHomepage\settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\settings.Designer.cs">
+      <DependentUpon>settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellerHomepage\UpdateAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellerHomepage\UpdateAcc.Designer.cs">
+      <DependentUpon>UpdateAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="signUp\Sign Up.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="signUp\Sign Up.Designer.cs">
+      <DependentUpon>Sign Up.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FirstHomepage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FirstHomepage.Designer.cs">
+      <DependentUpon>FirstHomepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FourthHomepage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FourthHomepage.Designer.cs">
+      <DependentUpon>FourthHomepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReadMoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\ReadMoreForm.Designer.cs">
+      <DependentUpon>ReadMoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SecondHomepage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SecondHomepage.Designer.cs">
+      <DependentUpon>SecondHomepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ThirdHomepage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ThirdHomepage.Designer.cs">
+      <DependentUpon>ThirdHomepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Acces.resx">
+      <DependentUpon>Acces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutreTypeAcc\AccType.resx">
+      <DependentUpon>AccType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerHomepage\Homepage.resx">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerHomepage\ProductControl.resx">
+      <DependentUpon>ProductControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerHomepage\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerHomepage\support.resx">
+      <DependentUpon>support.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerHomepage\trendingAccount.resx">
+      <DependentUpon>trendingAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerHomepage\trendingSeller.resx">
+      <DependentUpon>trendingSeller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPassword.resx">
+      <DependentUpon>NewPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="sellerHomepage\AccCust.resx">
+      <DependentUpon>AccCust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\AddAcc.resx">
+      <DependentUpon>AddAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\CrystalSeller_cust\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\CrystalSeller_cust\CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\CrystalSeller_cust\CrystalReport3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\CrystalSeller_cust\Support.resx">
+      <DependentUpon>Support.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\DelAcc.resx">
+      <DependentUpon>DelAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\Homepage.resx">
+      <DependentUpon>Homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\SellerAcc.resx">
+      <DependentUpon>SellerAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\SellerCust.resx">
+      <DependentUpon>SellerCust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\settings.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellerHomepage\UpdateAcc.resx">
+      <DependentUpon>UpdateAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="signUp\Sign Up.resx">
+      <DependentUpon>Sign Up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FirstHomepage.resx">
+      <DependentUpon>FirstHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FourthHomepage.resx">
+      <DependentUpon>FourthHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ReadMoreForm.resx">
+      <DependentUpon>ReadMoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SecondHomepage.resx">
+      <DependentUpon>SecondHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ThirdHomepage.resx">
+      <DependentUpon>ThirdHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AccesLinq\DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AccesLinq\DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+    <None Include="MarketDataSet.xsc">
+      <DependentUpon>MarketDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MarketDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MarketDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MarketDataSet.xss">
+      <DependentUpon>MarketDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="sellerHomepage\SellerDataSet.xsc">
+      <DependentUpon>SellerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="sellerHomepage\SellerDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SellerDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="sellerHomepage\SellerDataSet.xss">
+      <DependentUpon>SellerDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarketClass\MarketClass.csproj">
+      <Project>{567ef4d4-8737-494b-8b3b-b1b60a4a27c4}</Project>
+      <Name>MarketClass</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FB_IMG_1640807075388.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-user-default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4me-icon-key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AccesEntity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20210224_205812_343.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_15-08-18-346.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_15-08-13-490.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_15-33-24-421.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_15-33-08-038.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_16-28-26-647.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_16-28-10-243.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_14-45-33-276.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_14-55-38-971.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_15-08-13-4901.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_15-08-18-3461.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_15-08-13-4902.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_14-45-48-519.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_16-28-10-2431.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_16-28-26-6471.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-20_14-45-48-5191.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP %286%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_146791.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP %287%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_435938.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP %285%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP %284%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP %2810%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telegram-computer-icons-desktop-wallpaper-logo-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5919711c2d2accce1615685b7b5128cc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP %2811%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgbin-telegram-computer-icons-others-PdyjQhuM3WprXzdagPJ48nLDk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14675.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\whatsapp-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accessibility21600.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accessibility216001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-21_16-48-35-608.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\STL_Support_Service_Icon_07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-27_19-41-55-772.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-27_19-43-13-209.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-27_19-44-13-239.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-27_19-44-49-567.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picsart_22-01-27_19-45-40-031.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\34-349693_circled-user-icon-transparent-background-username-icon-hd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comingsoon-480x408.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e5ba79334133d2cb362dd639f755a392.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ecommerce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ecommerce1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\store-1598040-1352436.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3829364.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4182944.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Soporte-tecnico-icono-280x300-280x300.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\358941_settings-icon-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP %281%291.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgbin-computer-icons-computer-software-font-others-JRv7N3K34edVGauHFugXNGEFp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_276638.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ratings-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_4522.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_6845.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\121113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blob.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\34-349693_circled-user-icon-transparent-background-username-icon-hd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20220319_194208.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG_20220319_194311.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Market" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-QV3FUH3\SQLEXPRESS;Initial Catalog=Market;Integrated Security=True" SettingsObjectName="MarketForm.Properties.Settings" SettingsPropertyName="MarketConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.accounts_products" Member="accounts_products">
+    <Type Name="accounts_products">
+      <Column Name="id_account" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="account_type" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="passwordA" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="account_duration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="accounts_products_orders" Member="orders" ThisKey="id_account" OtherKey="id_account" Type="orders" />
+      <Association Name="seller_accounts_products" Member="seller" ThisKey="userS" OtherKey="userS" Type="seller" IsForeignKey="true" />
+      <Association Name="products_accounts_products" Member="products" ThisKey="account_type" OtherKey="account_type" Type="products" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.customer" Member="customer">
+    <Type Name="customer">
+      <Column Name="userC" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nameC" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="passwordC" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="CityC" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="phoneC" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="customer_orders" Member="orders" ThisKey="userC" OtherKey="userC" Type="orders" />
+    </Type>
+  </Table>
+  <Table Name="dbo.orders" Member="orders">
+    <Type Name="orders">
+      <Column Name="n_order" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userC" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="userS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="id_account" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="order_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="accounts_products_orders" Member="accounts_products" ThisKey="id_account" OtherKey="id_account" Type="accounts_products" IsForeignKey="true" />
+      <Association Name="customer_orders" Member="customer" ThisKey="userC" OtherKey="userC" Type="customer" IsForeignKey="true" />
+      <Association Name="seller_orders" Member="seller" ThisKey="userS" OtherKey="userS" Type="seller" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.seller" Member="seller">
+    <Type Name="seller">
+      <Column Name="userS" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nameS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="passwordS" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="CityS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="phoneS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="seller_accounts_products" Member="accounts_products" ThisKey="userS" OtherKey="userS" Type="accounts_products" />
+      <Association Name="seller_orders" Member="orders" ThisKey="userS" OtherKey="userS" Type="orders" />
+    </Type>
+  </Table>
+  <Table Name="dbo.products" Member="products">
+    <Type Name="products">
+      <Column Name="account_type" Type="System.String" DbType="VarChar(40) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="products_accounts_products" Member="accounts_products" ThisKey="account_type" OtherKey="account_type" Type="accounts_products" />
+    </Type>
+  </Table>
+</Database>

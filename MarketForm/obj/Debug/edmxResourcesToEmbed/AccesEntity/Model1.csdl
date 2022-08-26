@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="accounts_products">
+    <Key>
+      <PropertyRef Name="id_account" />
+    </Key>
+    <Property Name="id_account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="account_type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="passwordA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="account_duration" Type="Int32" />
+    <NavigationProperty Name="products" Relationship="Self.FK__accounts___accou__0B91BA14" FromRole="accounts_products" ToRole="products" />
+    <NavigationProperty Name="orders" Relationship="Self.FK__orders__id_accou__51300E55" FromRole="accounts_products" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="userC" />
+    </Key>
+    <Property Name="userC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nameC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="passwordC" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CityC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="phoneC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="orders" Relationship="Self.FK__orders__userC__4F47C5E3" FromRole="customer" ToRole="orders" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="n_order" />
+    </Key>
+    <Property Name="n_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="userS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="id_account" Type="Int32" />
+    <Property Name="order_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="accounts_products" Relationship="Self.FK__orders__id_accou__51300E55" FromRole="orders" ToRole="accounts_products" />
+    <NavigationProperty Name="customer" Relationship="Self.FK__orders__userC__4F47C5E3" FromRole="orders" ToRole="customer" />
+    <NavigationProperty Name="seller" Relationship="Self.FK__orders__userS__503BEA1C" FromRole="orders" ToRole="seller" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="account_type" />
+    </Key>
+    <Property Name="account_type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="Int32" />
+    <NavigationProperty Name="accounts_products" Relationship="Self.FK__accounts___accou__0B91BA14" FromRole="products" ToRole="accounts_products" />
+    <NavigationProperty Name="seller" Relationship="Self.FK__products__userS__08B54D69" FromRole="products" ToRole="seller" />
+  </EntityType>
+  <EntityType Name="seller">
+    <Key>
+      <PropertyRef Name="userS" />
+    </Key>
+    <Property Name="userS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nameS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="passwordS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CityS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="phoneS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="orders" Relationship="Self.FK__orders__userS__503BEA1C" FromRole="seller" ToRole="orders" />
+    <NavigationProperty Name="products" Relationship="Self.FK__products__userS__08B54D69" FromRole="seller" ToRole="products" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__accounts___accou__0B91BA14">
+    <End Role="products" Type="Self.products" Multiplicity="0..1" />
+    <End Role="accounts_products" Type="Self.accounts_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="account_type" />
+      </Principal>
+      <Dependent Role="accounts_products">
+        <PropertyRef Name="account_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orders__id_accou__51300E55">
+    <End Role="accounts_products" Type="Self.accounts_products" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accounts_products">
+        <PropertyRef Name="id_account" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="id_account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orders__userC__4F47C5E3">
+    <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="userC" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="userC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__orders__userS__503BEA1C">
+    <End Role="seller" Type="Self.seller" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="seller">
+        <PropertyRef Name="userS" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="userS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__products__userS__08B54D69">
+    <End Role="seller" Type="Self.seller" Multiplicity="0..1" />
+    <End Role="products" Type="Self.products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="seller">
+        <PropertyRef Name="userS" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="userS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MarketEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accounts_products" EntityType="Self.accounts_products" />
+    <EntitySet Name="customer" EntityType="Self.customer" />
+    <EntitySet Name="orders" EntityType="Self.orders" />
+    <EntitySet Name="products" EntityType="Self.products" />
+    <EntitySet Name="seller" EntityType="Self.seller" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK__accounts___accou__0B91BA14" Association="Self.FK__accounts___accou__0B91BA14">
+      <End Role="products" EntitySet="products" />
+      <End Role="accounts_products" EntitySet="accounts_products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orders__id_accou__51300E55" Association="Self.FK__orders__id_accou__51300E55">
+      <End Role="accounts_products" EntitySet="accounts_products" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orders__userC__4F47C5E3" Association="Self.FK__orders__userC__4F47C5E3">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__orders__userS__503BEA1C" Association="Self.FK__orders__userS__503BEA1C">
+      <End Role="seller" EntitySet="seller" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__products__userS__08B54D69" Association="Self.FK__products__userS__08B54D69">
+      <End Role="seller" EntitySet="seller" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MarketModelStoreContainer" CdmEntityContainer="MarketEntities2">
+    <EntitySetMapping Name="accounts_products">
+      <EntityTypeMapping TypeName="MarketModel.accounts_products">
+        <MappingFragment StoreEntitySet="accounts_products">
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="account_type" ColumnName="account_type" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="passwordA" ColumnName="passwordA" />
+          <ScalarProperty Name="account_duration" ColumnName="account_duration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="MarketModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="userC" ColumnName="userC" />
+          <ScalarProperty Name="nameC" ColumnName="nameC" />
+          <ScalarProperty Name="passwordC" ColumnName="passwordC" />
+          <ScalarProperty Name="CityC" ColumnName="CityC" />
+          <ScalarProperty Name="phoneC" ColumnName="phoneC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="MarketModel.orders">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="n_order" ColumnName="n_order" />
+          <ScalarProperty Name="userC" ColumnName="userC" />
+          <ScalarProperty Name="userS" ColumnName="userS" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="MarketModel.products">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="account_type" ColumnName="account_type" />
+          <ScalarProperty Name="userS" ColumnName="userS" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="seller">
+      <EntityTypeMapping TypeName="MarketModel.seller">
+        <MappingFragment StoreEntitySet="seller">
+          <ScalarProperty Name="userS" ColumnName="userS" />
+          <ScalarProperty Name="nameS" ColumnName="nameS" />
+          <ScalarProperty Name="passwordS" ColumnName="passwordS" />
+          <ScalarProperty Name="CityS" ColumnName="CityS" />
+          <ScalarProperty Name="phoneS" ColumnName="phoneS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MarketModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
