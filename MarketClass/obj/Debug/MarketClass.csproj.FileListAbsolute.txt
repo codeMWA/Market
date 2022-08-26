@@ -1,0 +1,7 @@
+C:\Users\hp\source\repos\BotMarket\MarketClass\bin\Debug\MarketClass.dll.config
+C:\Users\hp\source\repos\BotMarket\MarketClass\bin\Debug\MarketClass.dll
+C:\Users\hp\source\repos\BotMarket\MarketClass\bin\Debug\MarketClass.pdb
+C:\Users\hp\source\repos\BotMarket\MarketClass\obj\Debug\MarketClass.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\BotMarket\MarketClass\obj\Debug\MarketClass.dll
+C:\Users\hp\source\repos\BotMarket\MarketClass\obj\Debug\MarketClass.pdb
+C:\Users\hp\source\repos\BotMarket\MarketClass\obj\Debug\MarketClass.csproj.AssemblyReference.cache
